@@ -28,9 +28,9 @@ export const GoogleDrive = () => {
   };
 
   return (
-    <GoogleOAuthProvider clientId="375499242890-r9i0i6cli22p4f5q0cv8dss48k4od2s1.apps.googleusercontent.com">
+    <>
       <h2>React Google Drive Integration</h2>
-      <Login />
+      {/* <Login /> */}
       {files.length > 0 && (
         <div>
           <h3>Files:</h3>
@@ -41,6 +41,6 @@ export const GoogleDrive = () => {
           </ul>
         </div>
       )}
-    </GoogleOAuthProvider>
+    </>
   );
 };
