@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useGoogleLogin } from "@react-oauth/google";
+import { GoogleOAuthProvider, useGoogleLogin } from "@react-oauth/google";
 import "../../style.css";
 
 export const GoogleDrive = () => {
