@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { GoogleOAuthProvider } from "@react-oauth/google";
+import { GoogleOAuthProvider, useGoogleLogin } from "@react-oauth/google";
 import Login from "./Login";
 import "../../style.css";
 
 export const GoogleDrive = () => {
   const [accessToken, setAccessToken] = useState("");
   const [files, setFiles] = useState([]);
+
+  const authorize = useGoogleLogin({
+    onSuccess: (response) => {
+      console.log(response);
+    },
+    flow: "auth-code",
+    scope: "https://www.googleapis.com/auth/drive",
+  });
 
   useEffect(() => {
     if (accessToken) {
@@ -29,8 +37,8 @@ export const GoogleDrive = () => {
 
   return (
     <GoogleOAuthProvider clientId="375499242890-r9i0i6cli22p4f5q0cv8dss48k4od2s1.apps.googleusercontent.com">
-      <h2>React Google Drive Integration</h2>
-      <Login />
+      <h2>React Google Drive Integration update</h2>
+      <button onClick={() => authorize()}>Login</button>
       {files.length > 0 && (
         <div>
           <h3>Files:</h3>
